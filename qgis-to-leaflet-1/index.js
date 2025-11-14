@@ -1,5 +1,6 @@
 //open cmd
 // cd to your directory and then type python3 -m http.server 8000
+//on a browser type http://localhost:8000/ to see the results
 
 //see https://leafletjs.com/examples/quick-start/
 var map = L.map('map').setView([40.635421751302594, 23.048999069281344], 13);
