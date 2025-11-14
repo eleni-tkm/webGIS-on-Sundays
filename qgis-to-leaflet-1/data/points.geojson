@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 0, "descr": "parking area" }, "geometry": { "type": "Point", "coordinates": [ 2556677.839884677436203, 4958833.031716981902719 ] } },
+{ "type": "Feature", "properties": { "id": 1, "descr": "parking area" }, "geometry": { "type": "Point", "coordinates": [ 2556804.188884559553117, 4958824.34522323962301 ] } },
+{ "type": "Feature", "properties": { "id": 2, "descr": "Zoological Garden" }, "geometry": { "type": "Point", "coordinates": [ 2556958.966409415472299, 4958904.892710665240884 ] } },
+{ "type": "Feature", "properties": { "id": 3, "descr": "Open Theater" }, "geometry": { "type": "Point", "coordinates": [ 2556608.347934741992503, 4959062.828960518352687 ] } },
+{ "type": "Feature", "properties": { "id": 4, "descr": "view point" }, "geometry": { "type": "Point", "coordinates": [ 2561675.041540015954524, 4957980.348710644990206 ] } }
+]
+}
