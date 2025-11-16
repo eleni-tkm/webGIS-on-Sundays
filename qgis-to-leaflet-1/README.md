@@ -27,11 +27,11 @@ You can use the existing data in the data folder that includes the three common 
 - Export your data in geojson format in the 'data' folder
 
 **▶️ Run the Demo (Windows)**
--clone the repo
--open cmd and navigate to the folder that contains the code
--run python -m http.server 8000 (you should have python installed)
--type localhost:8000 in a browser
--to free the post and kill the server hit ctrl+C
+- clone the repo<br />
+- open cmd and navigate to the folder that contains the code<br />
+- run python -m http.server 8000 (you should have python installed)<br />
+- type localhost:8000 in a browser<br />
+- to free the post and kill the server hit ctrl+C<br />
 
 -------------------------------------------
 
