@@ -22,16 +22,16 @@ You can use the existing data in the data folder that includes the three common 
 **✏️ if you want to make your own data**:
 - Open QGIS and add a basemap
 - Create a new vector layer and choose the geometry that you want (point, line or polygon)
-- Include a field to hold a description for your data
-- Make sure that your data are drawn upon **WGS84, EPSG:4326**
-- Export your data in geojson format in the data folder
+- Include a field to hold a description for your data (here called 'descr')
+- Set CRS to **WGS84 (EPSG:4326)**
+- Export your data in geojson format in the 'data' folder
 
 **▶️ Run the Demo (Windows)**
-clone the repo
-open cmd and navigate to the folder that contains the code
-run python -m http.server 8000
-type localhost:8000 in a browser
-to free the post and kill the server hit ctrl+C
+-clone the repo
+-open cmd and navigate to the folder that contains the code
+-run python -m http.server 8000 (you should have python installed)
+-type localhost:8000 in a browser
+-to free the post and kill the server hit ctrl+C
 
 -------------------------------------------
 
@@ -42,8 +42,7 @@ This episode contains three essential files that work together to display GeoJSO
 ### 📄 index.html
 
 -Links to Leaflet CSS & JS
-
--Contains a <div id="map"></div> where the map will be rendered
+-Contains a div with an id = "map" where the map will be rendered
 
 ### 🎨 styles.css
 
