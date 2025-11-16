@@ -74,4 +74,4 @@ Clone the repo, experiment with the code and **break things**!
 
 ## 📣 Weekly Updates
 
-Follow [my LinkedIn](https://www.linkedin.com/in/your-profile) for weekly posts and reflections on each Episode. Use the hashtag **#webGISonSundays** to share your own experiments !
+Follow [my LinkedIn]([https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/eleni-tokmaktsi-982334257/)) for weekly posts and reflections on each Episode. Use the hashtag **#webGISonSundays** to share your own experiments !
