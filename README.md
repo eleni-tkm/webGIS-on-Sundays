@@ -50,7 +50,6 @@ Store and query geospatial data:
 
 - **PostgreSQL + PostGIS**  
 - **DuckDB**  
-- **GeoPackage**
 
 ---
 
