@@ -46,24 +46,24 @@ This episode contains three essential files that work together to display GeoJSO
 
 ### 🎨 styles.css
 
--Sets the height/width for the map container
+-Sets the height/width for the map container<br />
 _*Leaflet requires this; otherwise, the map will not appear_
 
 ### 📘 index.js — The Core Logic
 
-This is where all WebGIS logic lives:
-    ✔ Map creation
-    ✔ Basemap loading
-    ✔ Styling
-    ✔ Loading GeoJSON layers
-    ✔ Popups
+This is where all WebGIS logic lives:<br />
+    ✔ Map creation<br />
+    ✔ Basemap loading<br />
+    ✔ Styling<br />
+    ✔ Loading GeoJSON layers<br />
+    ✔ Popups<br />
 
 **It includes:**
 
 1️⃣ Map Initialization
-`var map = L.map('map').setView([40.635421751302594, 23.048999069281344], 13);`
-.setView([lat, lng], zoom) defines the initial map position & the zoom level
-💡 Find your location on Google Maps and place it into the setView
+`var map = L.map('map').setView([40.635421751302594, 23.048999069281344], 13);`<br />
+The .setView([lat, lng], zoom) defines the initial map position & the zoom level<br />
+💡 Find your location on Google Maps and place it into the setView<br />
 💡 see: https://leafletjs.com/examples/quick-start/
 
 
@@ -75,16 +75,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 ```
 💡 Explore other basemaps options: https://leafletjs.com/plugins.html#basemap-providers
 
-3️⃣ Define Styles for Each Geometry Type
-var pointStyle = { ... };
-var lineStyle = { ... };
-var polygonStyle = { ... };
+3️⃣ Define Styles for Each Geometry Type<br />
+var pointStyle = { ... };<br />
+var lineStyle = { ... };<br />
+var polygonStyle = { ... };<br />
 
 💡 Play with styling
 
 
 
-4️⃣ Load the POLYGON Layer
+4️⃣ Load the POLYGON Layer<br />
 
 - fetch() loads the file
 - Response is converted to JSON
@@ -111,13 +111,12 @@ fetch('data/lines.geojson')
   });
 ```
 
-Same logic — different style
 
 6️⃣ Load the POINT Layer + Popups
 - pointToLayer converts points into circle markers
 - onEachFeature connects each feature’s descr attribute to a popup
 - layer.bindPopup takes the input and add it as content of the popup
-
+```
 fetch('data/points-seih-sou.geojson')
   .then(res => res.json())
   .then(data => {
@@ -132,5 +131,5 @@ fetch('data/points-seih-sou.geojson')
       }
     }).addTo(map);
   });
-
+```
 💡 Can you find a way to change the style of the popups ❓❓❓
