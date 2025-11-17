@@ -64,6 +64,7 @@ map.on('baselayerchange', function(e) {
  
 });
 
+//see the coordinates that you are clicking on!
 map.on('click', function(e) {
     
     console.log('lat:', e.latlng.lat);
@@ -72,7 +73,7 @@ map.on('click', function(e) {
 });
 
 
-// MiniMap
+// MiniMap see https://github.com/Norkart/Leaflet-MiniMap we need to create new var for our layers
 var osm2 = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       minZoom: 0,
       maxZoom: 13,
