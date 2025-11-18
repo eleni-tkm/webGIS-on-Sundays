@@ -89,6 +89,7 @@ var sattelite2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/servic
   attribution: 'Tiles © Esri'
 });
 
+//add minimap to map
 var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true }).addTo(map);
 
 //change minimap based on baselayer changes
