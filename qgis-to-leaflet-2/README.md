@@ -10,9 +10,6 @@ _This episode covers:_
 - Using simple JavaScript to update our MiniMap (reflect changes on our basemap)
 - Customizing the styles of popups
 
-## 🎥 Demo
-[Watch the demo video](./qgis-to-leaflet2-demo.mp4)
-
 ## 📂 How to use the MiniMap plugin
 
 1. Download the logic (the Control.MiniMap.js file), the styling ( Control.MiniMap.css file), and the images from here: https://github.com/Norkart/Leaflet-MiniMap/tree/master/src. These resources **are already included** in this repository
