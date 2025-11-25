@@ -12,9 +12,3 @@
     font-family: ui-sans-serif;
     font-weight: bold;
 }
-
-
-.leaflet-touch .leaflet-control-geocoder .leaflet-control-geocoder-icon {
-    width: 44px !important;
-    height: 44px !important;
-}
