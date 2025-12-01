@@ -179,9 +179,8 @@ fetch('data/points-seih-sou.geojson')
 });
 
 //add Geocoder
-
 L.Control.geocoder({
-    defaultMarkGeocode: false
+    defaultMarkGeocode: false //set to false or else it will overwrite the animation cause by the flyTo method used below
 })
 .on('markgeocode', function(e) {
     var latlng = e.geocode.center;
@@ -192,5 +191,124 @@ L.Control.geocoder({
         animate: true,
         duration: 4
     });
+
+  
+    // Wait for the flyTo animation to finish
+    //see https://leafletjs.com/reference.html#map-moveend
+    map.once('moveend', function() {
+        L.marker(latlng).addTo(map);
+    });
 })
+  
 .addTo(map);
+
+//add a compass
+var comp = new L.Control.Compass({autoActive: true, showDigit:true});
+map.addControl(comp);
+
+//USGS API 
+//API documentation: https://earthquake.usgs.gov/fdsnws/event/1/
+
+    // Layer groups for magnitude ranges
+    const mag3Layer = L.layerGroup();
+    const mag4Layer = L.layerGroup();
+    const mag5Layer = L.layerGroup();
+
+    // Add layer control
+    // const overlayMaps = {
+    //   "Magnitude ≥ 3": mag3Layer,
+    //   "Magnitude ≥ 4": mag4Layer,
+    //   "Magnitude ≥ 5": mag5Layer
+    // };
+// L.control.layers({}, overlayMaps).addTo(map); --> If uncomment then you will generate a new layerControl
+//instead we will add these layers to the existing layerControl of the basemaps
+
+    
+// Add overlays to existing control
+    layerControl.addOverlay(mag3Layer, "Magnitude ≥ 3");
+    layerControl.addOverlay(mag4Layer, "Magnitude ≥ 4");
+    layerControl.addOverlay(mag5Layer, "Magnitude ≥ 5");
+
+
+    // Add layers to map by default
+    mag3Layer.addTo(map);
+    mag4Layer.addTo(map);
+    mag5Layer.addTo(map);
+
+    //SEE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+    let seenIds = new Set();
+
+    function fetchEarthquakes() {
+      const url = 'https://earthquake.usgs.gov/fdsnws/event/1/query?' +
+        'format=geojson&minlatitude=33&maxlatitude=43&minlongitude=18&maxlongitude=30&minmagnitude=2&limit=20000&orderby=time';
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          data.features.forEach(eq => {
+            const tsunami = eq.properties.tsunami;
+            console.log(tsunami);
+            console.log(eq.id);
+            //SEE https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has
+            if (!seenIds.has(eq.id)) {
+              seenIds.add(eq.id);
+              const [lon, lat] = eq.geometry.coordinates;
+              const mag = eq.properties.mag;
+              const place = eq.properties.place;
+              const time = new Date(eq.properties.time).toLocaleString();
+              
+              
+              let stunamiValue;
+              if (tsunami == 0) {
+                stunamiValue = "False";
+              } else {
+                stunamiValue = "True";
+              }
+              const marker = L.circleMarker([lat, lon], {
+                radius: mag * 2,
+                color: mag >= 5 ? 'red' : mag >= 4 ? 'orange' : 'yellow'
+              }).bindPopup(`
+                <b>${place}</b><br>
+                Magnitude: ${mag}<br>
+                Date & Time: ${time}<br>
+                Tsunami: ${stunamiValue}
+              `);
+
+              if (mag >= 5) {
+                marker.addTo(mag5Layer);
+              } else if (mag >= 4) {
+                marker.addTo(mag4Layer);
+              } else {
+                marker.addTo(mag3Layer);
+              }
+            }
+          });
+        });
+    }
+
+    // Initial load
+    fetchEarthquakes();
+
+    // Auto-update every 60 seconds
+    setInterval(fetchEarthquakes, 60000);
+
+//tectonic plates
+
+fetch('https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json')
+  .then(res => res.json())
+  .then(data => {
+    const plateLayer = L.geoJSON(data, {
+      style: {
+        color: 'blue',
+        weight: 4
+      },
+      onEachFeature: function(feature, layer) {
+        // Bind popup with plate name
+        const plateName = feature.properties.Name || 'Unknown';
+        layer.bindPopup(`<b>Plate Boundary:</b> ${plateName}`);
+      }
+    }).addTo(map);
+
+    // Add to existing layer control
+    layerControl.addOverlay(plateLayer, "Plate Boundaries");
+  });
