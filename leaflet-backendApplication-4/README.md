@@ -1,4 +1,4 @@
-## 🎬 Episode 4: Integrating Leaflet.js with Node.js & PostgreSQ
+## 🎬 Episode 4: Integrating Leaflet.js with Node.js & PostgreSQL
 
 _This episode covers:_
 
