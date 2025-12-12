@@ -339,7 +339,7 @@ fetch('https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB
 map.addControl(drawControl);
 
 
-//from https://leaflet.github.io/Leaflet.draw/docs/examples/popup.html
+//from https://github.com/Leaflet/Leaflet.draw/blob/develop/docs/examples/popup.html
 
         // Truncate value based on number of decimals
         var _round = function(num, len) {
@@ -388,7 +388,7 @@ map.addControl(drawControl);
   map.on("draw:created", function (e) {
     var layer = e.layer;
     var type = e.layerType;
-    var content = getPopupContent(layer);
+    var content = getPopupContent(layer); //calling thre custom function
     console.log("DRAW CREATED");
     console.log(type);
     console.log(layer);
