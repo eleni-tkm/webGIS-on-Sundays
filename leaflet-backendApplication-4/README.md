@@ -21,12 +21,14 @@ _You can use a Node installer to install both Node.js and npm on your system: ht
 - Install Postgresql if you haven't already & create a database. IMPORTANT!: write down your password asked during installation<br />
 - Navigate to the folder that contains the code<br />
 - Create a .env file and add inside: <br />
-- ```SERVER_PORT=5004
-DATABASE_HOST = localhost
-DATABASE_USER = postgres
-DATABASE_PORT = 5432
-DATABASE_PASSWORD = your-password-during-installation
-DATABASE = your-database-name```
+  ```
+    SERVER_PORT=5004
+    DATABASE_HOST = localhost
+    DATABASE_USER = postgres
+    DATABASE_PORT = 5432
+    DATABASE_PASSWORD = your-password-during-installation
+    DATABASE = your-database-name
+```
 - run npm i to install all the modules (npm should be installed)<br />
 - run npm start<br />
 - Open a browser and type http://localhost:5004/
