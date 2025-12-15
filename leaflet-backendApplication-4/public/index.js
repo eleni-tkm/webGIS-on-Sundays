@@ -60,8 +60,8 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
 
 //Detect basemap Change
 map.on('baselayerchange', function(e) {
-    console.log('Base layer changed to:', e.name);
-    console.log(e);
+    //console.log('Base layer changed to:', e.name);
+    //console.log(e);
  
 });
 
@@ -108,8 +108,8 @@ map.on('baselayerchange', function(e) {
         miniMap.changeLayer(sattelite2);
         break;
     }
-    console.log('Base layer changed to:', e.name);
-    console.log(e);
+    //console.log('Base layer changed to:', e.name);
+    //console.log(e);
  
 });
 
@@ -247,8 +247,8 @@ map.addControl(comp);
         .then(data => {
           data.features.forEach(eq => {
             const tsunami = eq.properties.tsunami;
-            console.log(tsunami);
-            console.log(eq.id);
+            //console.log(tsunami);
+            //console.log(eq.id);
             //SEE https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has
             if (!seenIds.has(eq.id)) {
               seenIds.add(eq.id);
@@ -389,10 +389,10 @@ map.addControl(drawControl);
     var layer = e.layer;
     var type = e.layerType;
     var content = getPopupContent(layer); //calling thre custom function
-    console.log("DRAW CREATED");
-    console.log(type);
-    console.log(layer);
-    console.log(layer.toGeoJSON());
+    //console.log("DRAW CREATED");
+    //console.log(type);
+    //console.log(layer);
+    console.log("The layer you created: ", e.layer.toGeoJSON());
 
     if (content !== null) {
       layer.bindPopup(content);
@@ -403,19 +403,19 @@ map.addControl(drawControl);
   });
 
 map.on("draw:drawstop", function (e) {
-    console.log("Drawing Stopped");
-    console.log(e); 
+    //console.log("Drawing Stopped");
+   // console.log(e); 
 
 });
 
 
 map.on("draw:edited", function (e) {
     var layers = e.layers;
-    console.log(e);
+    //console.log(e);
     content = null;
     layers.eachLayer(function(layer) {
-        console.log(layer);
-        console.log(layer.toGeoJSON());
+        //console.log(layer);
+        //console.log(layer.toGeoJSON());
         content = getPopupContent(layer);
         if (content !== null) {
             layer.setPopupContent(content);
