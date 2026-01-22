@@ -93,7 +93,7 @@ map.addControl(drawControl);
 
 
 2️⃣ Adding pop ups with area, lat/long, distance or center/radius to the created shapes <br />
-_This block of code derived from: from https://github.com/Leaflet/Leaflet.draw/blob/develop/docs/examples/popup.html
+_This block of code derived from: from https://github.com/Leaflet/Leaflet.draw/blob/develop/docs/examples/popup.html_
 ```
         // Truncate value based on number of decimals
         var _round = function(num, len) {
@@ -141,7 +141,7 @@ _This block of code derived from: from https://github.com/Leaflet/Leaflet.draw/b
 ```
 
 3️⃣ Exploring draw's events <br />
-_See a list of events here: https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#l-draw-event-draw:created 
+_See a list of events here: https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#l-draw-event-draw:created_ 
 - draw:created. Triggered when a new vector or marker has been created.
 ```
   map.on("draw:created", function (e) {
